@@ -1,7 +1,5 @@
 package com.explosion204.custom_array;
 
-import java.util.Arrays;
-
 public class CustomArray {
     private int[] internalCollection;
     private int length;
@@ -26,7 +24,7 @@ public class CustomArray {
 
     public int get(int index) {
         if (index < 0 || index >= length) {
-            throw new ArrayIndexOutOfBoundsException();
+            throw new ArrayInvalidIndexException();
         }
 
         return internalCollection[index];
@@ -34,7 +32,7 @@ public class CustomArray {
 
     public void set(int index, int number) {
         if (index < 0 || index >= length) {
-            throw new ArrayIndexOutOfBoundsException();
+            throw new ArrayInvalidIndexException();
         }
 
         internalCollection[index] = number;
