@@ -6,8 +6,8 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
 public class ArrayManipulation {
-    public static void replace(CustomArray array, Predicate<int> predicate,
-        UnaryOperator<int> transform) {
+    public static void replace(CustomArray array, Predicate<Integer> predicate,
+        UnaryOperator<Integer> transform) {
         for (int i = 0; i < array.getLength(); i++) {
             boolean isMatch = predicate.test(array.get(i));
 
@@ -18,7 +18,6 @@ public class ArrayManipulation {
             }
         }
     }
-
 
     public static void mergeSort(CustomArray array, int len) {
         if (len < 2) {
