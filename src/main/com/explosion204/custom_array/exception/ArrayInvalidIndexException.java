@@ -1,4 +1,4 @@
-package com.explosion204.custom_array;
+package com.explosion204.custom_array.exception;
 
 public class ArrayInvalidIndexException extends RuntimeException {
     public ArrayInvalidIndexException() {

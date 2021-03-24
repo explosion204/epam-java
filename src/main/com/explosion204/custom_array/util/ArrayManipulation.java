@@ -9,7 +9,8 @@ public class ArrayManipulation {
     public static void replace(CustomArray array, Predicate<Integer> predicate,
         UnaryOperator<Integer> transform) {
         for (int i = 0; i < array.getLength(); i++) {
-            boolean isMatch = predicate.test(array.get(i));
+            int number = array.get(i);
+            boolean isMatch = predicate.test(number);
 
             if (isMatch) {
                 int oldNumber = array.get(i);

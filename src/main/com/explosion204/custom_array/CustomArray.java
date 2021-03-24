@@ -1,5 +1,8 @@
 package com.explosion204.custom_array;
 
+import com.explosion204.custom_array.exception.ArrayInvalidIndexException;
+import com.explosion204.custom_array.exception.ArrayInvalidLengthException;
+
 public class CustomArray {
     private int[] internalCollection;
     private int length;
@@ -14,8 +17,12 @@ public class CustomArray {
     }
 
     public CustomArray(int[] values) {
-         internalCollection = values.clone();
-         length = internalCollection.length;
+        if (values.length < 1) {
+            throw new ArrayInvalidLengthException();
+        }
+
+        internalCollection = values.clone();
+        length = internalCollection.length;
     }
 
     public int getLength() {
