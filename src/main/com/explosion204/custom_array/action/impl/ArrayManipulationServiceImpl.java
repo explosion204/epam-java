@@ -2,6 +2,8 @@ package com.explosion204.custom_array.action.impl;
 
 import com.explosion204.custom_array.CustomArray;
 import com.explosion204.custom_array.action.ArrayManipulationService;
+import com.explosion204.custom_array.creator.CustomArrayCreator;
+import com.explosion204.custom_array.creator.impl.CustomArrayCreatorImpl;
 
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
@@ -23,14 +25,20 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
     }
 
     @Override
-    public void mergeSort(CustomArray array, int length) {
+    public void mergeSort(CustomArray array) {
+        CustomArrayCreator arrayCreator = new CustomArrayCreatorImpl();
+        int arrayLength = array.getLength();
+        internalMergeSort(arrayCreator, array, arrayLength);
+    }
+
+    private void internalMergeSort(CustomArrayCreator creator, CustomArray array, int length) {
         if (length < 2) {
             return;
         }
 
         int middle = length / 2;
-        CustomArray leftArr = new CustomArray(middle);
-        CustomArray rightArr = new CustomArray(length - middle);
+        CustomArray leftArr = creator.createEmptyArray(middle);
+        CustomArray rightArr = creator.createEmptyArray(length - middle);
 
         for (int i = 0; i < middle; i++) {
             int number = array.get(i);
@@ -42,8 +50,8 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
             rightArr.set(i - middle, number);
         }
 
-        mergeSort(leftArr, middle);
-        mergeSort(rightArr, length - middle);
+        internalMergeSort(creator, leftArr, middle);
+        internalMergeSort(creator, rightArr, length - middle);
 
         int i = 0;
         int j = 0;

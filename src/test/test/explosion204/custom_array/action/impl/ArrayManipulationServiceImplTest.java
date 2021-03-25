@@ -35,9 +35,8 @@ public class ArrayManipulationServiceImplTest {
     @Test
     public void testMergeSort() {
         CustomArray testArray = new CustomArray(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
-        int testArrayLength = testArray.getLength();
 
-        service.mergeSort(testArray, testArrayLength);
+        service.mergeSort(testArray);
 
         String actual = testArray.toString();
         String expected = "{ 2 3 4 5 5 6 15 15 17 126 }";

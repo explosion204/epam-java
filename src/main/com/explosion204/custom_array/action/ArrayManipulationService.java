@@ -8,5 +8,5 @@ import java.util.function.UnaryOperator;
 public interface ArrayManipulationService {
     void replace(CustomArray array, Predicate<Integer> predicate,
                  UnaryOperator<Integer> transform);
-    void mergeSort(CustomArray array, int length);
+    void mergeSort(CustomArray array);
 }

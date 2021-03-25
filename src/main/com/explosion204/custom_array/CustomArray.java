@@ -1,36 +1,24 @@
 package com.explosion204.custom_array;
 
 import com.explosion204.custom_array.exception.ArrayInvalidIndexException;
-import com.explosion204.custom_array.exception.ArrayInvalidLengthException;
 
 public class CustomArray {
     private int[] internalCollection;
-    private int length;
 
-    public CustomArray(int length) {
-        if (length < 1) {
-            throw new ArrayInvalidLengthException();
-        }
-
-        internalCollection = new int[length];
-        this.length = length;
+    public CustomArray() {
+        internalCollection = new int[0];
     }
 
     public CustomArray(int ... values) {
-        if (values.length < 1) {
-            throw new ArrayInvalidLengthException();
-        }
-
         internalCollection = values.clone();
-        length = internalCollection.length;
     }
 
     public int getLength() {
-        return length;
+        return internalCollection.length;
     }
 
     public int get(int index) {
-        if (index < 0 || index >= length) {
+        if (index < 0 || index >= internalCollection.length) {
             throw new ArrayInvalidIndexException();
         }
 
@@ -38,7 +26,7 @@ public class CustomArray {
     }
 
     public void set(int index, int number) {
-        if (index < 0 || index >= length) {
+        if (index < 0 || index >= internalCollection.length) {
             throw new ArrayInvalidIndexException();
         }
 
@@ -76,12 +64,13 @@ public class CustomArray {
         }
 
         CustomArray anotherArray = (CustomArray) obj;
+        int length = internalCollection.length;
 
         if (length != anotherArray.getLength()) {
             return false;
         }
 
-        for (int i = 0; i < anotherArray.length; i++) {
+        for (int i = 0; i < anotherArray.getLength(); i++) {
             if (internalCollection[i] != anotherArray.get(i)) {
                 return false;
             }

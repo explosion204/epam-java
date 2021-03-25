@@ -23,36 +23,6 @@ public class CustomArrayTest {
     }
 
     @Test
-    void testConstructorWithLength() {
-        CustomArray newArray = new CustomArray(3);
-
-        int actual = newArray.getLength();
-        int expected = 3;
-
-        Assert.assertEquals(actual, expected);
-    }
-
-    @Test(expectedExceptions = ArrayInvalidLengthException.class)
-    void testConstructorWithLengthException() {
-        new CustomArray(0);
-    }
-
-    @Test
-    void testConstructorWithValues() {
-        CustomArray newArray = new CustomArray(new int[] { 1, 2, 3, 4 });
-
-        int actual = newArray.getLength();
-        int expected = 4;
-
-        Assert.assertEquals(actual, expected);
-    }
-
-    @Test(expectedExceptions = ArrayInvalidLengthException.class)
-    void testConstructorWithValuesException() {
-        new CustomArray(-1);
-    }
-
-    @Test
     public void testGet() {
         int actual = fourthArray.get(1);
 
