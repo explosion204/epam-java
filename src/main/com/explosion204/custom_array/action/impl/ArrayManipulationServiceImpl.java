@@ -1,12 +1,14 @@
-package com.explosion204.custom_array.action;
+package com.explosion204.custom_array.action.impl;
 
 import com.explosion204.custom_array.CustomArray;
+import com.explosion204.custom_array.action.ArrayManipulationService;
 
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
-public class ArrayManipulation {
-    public static void replace(CustomArray array, Predicate<Integer> predicate,
+public class ArrayManipulationServiceImpl implements ArrayManipulationService {
+    @Override
+    public void replace(CustomArray array, Predicate<Integer> predicate,
         UnaryOperator<Integer> transform) {
         for (int i = 0; i < array.getLength(); i++) {
             int number = array.get(i);
@@ -20,33 +22,34 @@ public class ArrayManipulation {
         }
     }
 
-    public static void mergeSort(CustomArray array, int len) {
-        if (len < 2) {
+    @Override
+    public void mergeSort(CustomArray array, int length) {
+        if (length < 2) {
             return;
         }
 
-        int mid = len / 2;
-        CustomArray leftArr = new CustomArray(mid);
-        CustomArray rightArr = new CustomArray(len - mid);
+        int middle = length / 2;
+        CustomArray leftArr = new CustomArray(middle);
+        CustomArray rightArr = new CustomArray(length - middle);
 
-        for (int i = 0; i < mid; i++) {
+        for (int i = 0; i < middle; i++) {
             int number = array.get(i);
             leftArr.set(i, number);
         }
 
-        for (int i = mid; i < len; i++) {
+        for (int i = middle; i < length; i++) {
             int number = array.get(i);
-            rightArr.set(i - mid, number);
+            rightArr.set(i - middle, number);
         }
 
-        mergeSort(leftArr, mid);
-        mergeSort(rightArr, len - mid);
+        mergeSort(leftArr, middle);
+        mergeSort(rightArr, length - middle);
 
         int i = 0;
         int j = 0;
         int k = 0;
 
-        while (i < mid && j < len - mid) {
+        while (i < middle && j < length - middle) {
             if (leftArr.get(i) <= rightArr.get(j)) {
                 int number = leftArr.get(i);
                 array.set(k, number);
@@ -60,14 +63,14 @@ public class ArrayManipulation {
             }
         }
 
-        while (i < mid) {
+        while (i < middle) {
             int number = leftArr.get(i);
             array.set(k, number);
             k++;
             i++;
         }
 
-        while (j < len - mid) {
+        while (j < length - middle) {
             int number = rightArr.get(j);
             array.set(k, number);
             k++;

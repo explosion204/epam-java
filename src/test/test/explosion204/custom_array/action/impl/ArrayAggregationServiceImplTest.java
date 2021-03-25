@@ -1,22 +1,25 @@
-package test.explosion204.custom_array.action;
+package test.explosion204.custom_array.action.impl;
 
 import com.explosion204.custom_array.CustomArray;
-import com.explosion204.custom_array.action.ArrayAggregation;
+import com.explosion204.custom_array.action.ArrayAggregationService;
+import com.explosion204.custom_array.action.impl.ArrayAggregationServiceImpl;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class ArrayAggregationTest {
+public class ArrayAggregationServiceImplTest {
     private CustomArray initialArray;
+    private ArrayAggregationService service;
 
     @BeforeClass
     public void setUp() {
-        initialArray = new CustomArray(new int[] { 5, 17, 6, -3, -2, 126, 5, 15, 15, 4 });
+        initialArray = new CustomArray(5, 17, 6, -3, -2, 126, 5, 15, 15, 4);
+        service = new ArrayAggregationServiceImpl();
     }
 
     @Test
     public void testFindMin() {
-        int actual = ArrayAggregation.findMin(initialArray);
+        int actual = service.findMin(initialArray);
         int expected = -3;
 
         Assert.assertEquals(actual, expected);
@@ -24,7 +27,7 @@ public class ArrayAggregationTest {
 
     @Test
     public void testFindMax() {
-        int actual = ArrayAggregation.findMax(initialArray);
+        int actual = service.findMax(initialArray);
         int expected = 126;
 
         Assert.assertEquals(actual, expected);
@@ -32,7 +35,7 @@ public class ArrayAggregationTest {
 
     @Test
     public void testFindAvg() {
-        double actual = ArrayAggregation.findAvg(initialArray);
+        double actual = service.findAvg(initialArray);
         double expected = 18.8;
 
         Assert.assertEquals(actual, expected);
@@ -40,7 +43,7 @@ public class ArrayAggregationTest {
 
     @Test
     public void testFindSum() {
-        long actual = ArrayAggregation.findSum(initialArray);
+        long actual = service.findSum(initialArray);
         long expected = 188;
 
         Assert.assertEquals(actual, expected);
@@ -48,7 +51,7 @@ public class ArrayAggregationTest {
 
     @Test
     public void testFindPositivesCount() {
-        int actual = ArrayAggregation.findPositivesCount(initialArray);
+        int actual = service.findPositivesCount(initialArray);
         int expected = 8;
 
         Assert.assertEquals(actual, expected);
@@ -56,7 +59,7 @@ public class ArrayAggregationTest {
 
     @Test
     public void testFindNegativesCount() {
-        int actual = ArrayAggregation.findNegativesCount(initialArray);
+        int actual = service.findNegativesCount(initialArray);
         int expected = 2;
 
         Assert.assertEquals(actual, expected);
