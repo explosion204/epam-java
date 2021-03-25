@@ -1,4 +1,4 @@
-package com.explosion204.custom_array.util;
+package com.explosion204.custom_array.action;
 
 import com.explosion204.custom_array.CustomArray;
 

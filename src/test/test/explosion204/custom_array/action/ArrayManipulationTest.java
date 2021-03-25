@@ -1,7 +1,7 @@
-package test.explosion204.custom_array.util;
+package test.explosion204.custom_array.action;
 
 import com.explosion204.custom_array.CustomArray;
-import com.explosion204.custom_array.util.ArrayManipulation;
+import com.explosion204.custom_array.action.ArrayManipulation;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

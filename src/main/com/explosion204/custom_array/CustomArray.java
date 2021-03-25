@@ -16,7 +16,7 @@ public class CustomArray {
         this.length = length;
     }
 
-    public CustomArray(int[] values) {
+    public CustomArray(int ... values) {
         if (values.length < 1) {
             throw new ArrayInvalidLengthException();
         }
