@@ -15,10 +15,10 @@ public class CustomArrayTest {
 
     @BeforeClass
     public void setUp() {
-        firstArray = new CustomArray(new int[] { 5, 17, 6 });
-        secondArray = new CustomArray(new int[] { 5, 17, 6 });
-        thirdArray = new CustomArray(new int[] { 5, 17, 1 });
-        fourthArray = new CustomArray(new int [] { 5, 2 });
+        firstArray = new CustomArray(5, 17, 6);
+        secondArray = new CustomArray(5, 17, 6);
+        thirdArray = new CustomArray(5, 17, 1);
+        fourthArray = new CustomArray(5, 2);
     }
 
     @Test

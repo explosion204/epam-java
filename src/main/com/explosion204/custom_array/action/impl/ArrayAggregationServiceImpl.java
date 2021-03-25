@@ -7,6 +7,10 @@ import com.explosion204.custom_array.exception.CustomArrayException;
 public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     @Override
     public int findMin(CustomArray array) throws CustomArrayException {
+        if (array == null || array.getLength() < 1) {
+            throw new CustomArrayException("Array length must be greater then zero");
+        }
+
         int min = array.get(0);
 
         for (int i = 1; i < array.getLength(); i++) {
@@ -20,6 +24,10 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
 
     @Override
     public int findMax(CustomArray array) throws CustomArrayException {
+        if (array == null || array.getLength() < 1) {
+            throw new CustomArrayException("Array length must be greater then zero");
+        }
+
         int max = array.get(0);
 
         for (int i = 1; i < array.getLength(); i++) {
@@ -33,6 +41,10 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
 
     @Override
     public double findAvg(CustomArray array) throws CustomArrayException {
+        if (array == null || array.getLength() < 1) {
+            throw new CustomArrayException("Array length must be greater then zero");
+        }
+
         int sum = 0;
 
         for (int i = 0; i < array.getLength(); i++) {
@@ -44,6 +56,10 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
 
     @Override
     public long findSum(CustomArray array) throws CustomArrayException {
+        if (array == null || array.getLength() < 1) {
+            throw new CustomArrayException("Array length must be greater then zero");
+        }
+
         int sum = 0;
 
         for (int i = 0; i < array.getLength(); i++) {
@@ -55,6 +71,10 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
 
     @Override
     public int findPositivesCount(CustomArray array) throws CustomArrayException {
+        if (array == null || array.getLength() < 1) {
+            throw new CustomArrayException("Array length must be greater then zero");
+        }
+
         int count = 0;
 
         for (int i = 0; i < array.getLength(); i++) {
@@ -70,6 +90,10 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
 
     @Override
     public int findNegativesCount(CustomArray array) throws CustomArrayException {
+        if (array == null || array.getLength() < 1) {
+            throw new CustomArrayException("Array length must be greater then zero");
+        }
+
         int count = 0;
 
         for (int i = 0; i < array.getLength(); i++) {

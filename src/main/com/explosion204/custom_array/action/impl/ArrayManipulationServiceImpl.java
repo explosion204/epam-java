@@ -13,6 +13,10 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
     @Override
     public void replace(CustomArray array, Predicate<Integer> predicate,
             UnaryOperator<Integer> transform) throws CustomArrayException {
+        if (array == null || array.getLength() < 1) {
+            throw new CustomArrayException("Array length must be greater then zero");
+        }
+
         for (int i = 0; i < array.getLength(); i++) {
             int number = array.get(i);
             boolean isMatch = predicate.test(number);
@@ -27,6 +31,10 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
 
     @Override
     public void mergeSort(CustomArray array) throws CustomArrayException {
+        if (array == null || array.getLength() < 1) {
+            throw new CustomArrayException("Array length must be greater then zero");
+        }
+
         CustomArrayCreator arrayCreator = new CustomArrayCreatorImpl();
         int arrayLength = array.getLength();
         internalMergeSort(arrayCreator, array, arrayLength);
