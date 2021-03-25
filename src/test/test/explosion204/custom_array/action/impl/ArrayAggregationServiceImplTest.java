@@ -3,6 +3,7 @@ package test.explosion204.custom_array.action.impl;
 import com.explosion204.custom_array.CustomArray;
 import com.explosion204.custom_array.action.ArrayAggregationService;
 import com.explosion204.custom_array.action.impl.ArrayAggregationServiceImpl;
+import com.explosion204.custom_array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ public class ArrayAggregationServiceImplTest {
     }
 
     @Test
-    public void testFindMin() {
+    public void testFindMin() throws CustomArrayException {
         int actual = service.findMin(initialArray);
         int expected = -3;
 
@@ -26,7 +27,7 @@ public class ArrayAggregationServiceImplTest {
     }
 
     @Test
-    public void testFindMax() {
+    public void testFindMax() throws CustomArrayException {
         int actual = service.findMax(initialArray);
         int expected = 126;
 
@@ -34,7 +35,7 @@ public class ArrayAggregationServiceImplTest {
     }
 
     @Test
-    public void testFindAvg() {
+    public void testFindAvg() throws CustomArrayException {
         double actual = service.findAvg(initialArray);
         double expected = 18.8;
 
@@ -42,7 +43,7 @@ public class ArrayAggregationServiceImplTest {
     }
 
     @Test
-    public void testFindSum() {
+    public void testFindSum() throws CustomArrayException {
         long actual = service.findSum(initialArray);
         long expected = 188;
 
@@ -50,7 +51,7 @@ public class ArrayAggregationServiceImplTest {
     }
 
     @Test
-    public void testFindPositivesCount() {
+    public void testFindPositivesCount() throws CustomArrayException {
         int actual = service.findPositivesCount(initialArray);
         int expected = 8;
 
@@ -58,7 +59,7 @@ public class ArrayAggregationServiceImplTest {
     }
 
     @Test
-    public void testFindNegativesCount() {
+    public void testFindNegativesCount() throws CustomArrayException {
         int actual = service.findNegativesCount(initialArray);
         int expected = 2;
 

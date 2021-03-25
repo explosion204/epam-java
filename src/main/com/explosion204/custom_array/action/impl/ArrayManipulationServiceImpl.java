@@ -4,6 +4,7 @@ import com.explosion204.custom_array.CustomArray;
 import com.explosion204.custom_array.action.ArrayManipulationService;
 import com.explosion204.custom_array.creator.CustomArrayCreator;
 import com.explosion204.custom_array.creator.impl.CustomArrayCreatorImpl;
+import com.explosion204.custom_array.exception.CustomArrayException;
 
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
@@ -11,7 +12,7 @@ import java.util.function.UnaryOperator;
 public class ArrayManipulationServiceImpl implements ArrayManipulationService {
     @Override
     public void replace(CustomArray array, Predicate<Integer> predicate,
-        UnaryOperator<Integer> transform) {
+            UnaryOperator<Integer> transform) throws CustomArrayException {
         for (int i = 0; i < array.getLength(); i++) {
             int number = array.get(i);
             boolean isMatch = predicate.test(number);
@@ -25,13 +26,14 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
     }
 
     @Override
-    public void mergeSort(CustomArray array) {
+    public void mergeSort(CustomArray array) throws CustomArrayException {
         CustomArrayCreator arrayCreator = new CustomArrayCreatorImpl();
         int arrayLength = array.getLength();
         internalMergeSort(arrayCreator, array, arrayLength);
     }
 
-    private void internalMergeSort(CustomArrayCreator creator, CustomArray array, int length) {
+    private void internalMergeSort(CustomArrayCreator creator, CustomArray array, int length)
+            throws CustomArrayException {
         if (length < 2) {
             return;
         }

@@ -3,6 +3,7 @@ package test.explosion204.custom_array.action.impl;
 import com.explosion204.custom_array.CustomArray;
 import com.explosion204.custom_array.action.ArrayManipulationService;
 import com.explosion204.custom_array.action.impl.ArrayManipulationServiceImpl;
+import com.explosion204.custom_array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -19,7 +20,7 @@ public class ArrayManipulationServiceImplTest {
     }
 
     @Test
-    public void testReplace() {
+    public void testReplace() throws CustomArrayException {
         CustomArray testArray = new CustomArray(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
 
         Predicate<Integer> predicate = (value) -> value % 2 == 0;
@@ -33,7 +34,7 @@ public class ArrayManipulationServiceImplTest {
     }
 
     @Test
-    public void testMergeSort() {
+    public void testMergeSort() throws CustomArrayException {
         CustomArray testArray = new CustomArray(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
 
         service.mergeSort(testArray);

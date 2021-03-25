@@ -1,6 +1,6 @@
 package com.explosion204.custom_array;
 
-import com.explosion204.custom_array.exception.ArrayInvalidIndexException;
+import com.explosion204.custom_array.exception.CustomArrayException;
 
 public class CustomArray {
     private int[] internalCollection;
@@ -17,17 +17,17 @@ public class CustomArray {
         return internalCollection.length;
     }
 
-    public int get(int index) {
+    public int get(int index) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
-            throw new ArrayInvalidIndexException();
+            throw new CustomArrayException("Array index is out of bounds");
         }
 
         return internalCollection[index];
     }
 
-    public void set(int index, int number) {
+    public void set(int index, int number) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
-            throw new ArrayInvalidIndexException();
+            throw new CustomArrayException("Array index is out of bounds");
         }
 
         internalCollection[index] = number;
@@ -64,16 +64,16 @@ public class CustomArray {
         }
 
         CustomArray anotherArray = (CustomArray) obj;
-        int length = internalCollection.length;
 
-        if (length != anotherArray.getLength()) {
-            return false;
-        }
-
-        for (int i = 0; i < anotherArray.getLength(); i++) {
-            if (internalCollection[i] != anotherArray.get(i)) {
-                return false;
+        try {
+            for (int i = 0; i < anotherArray.getLength(); i++) {
+                if (internalCollection[i] != anotherArray.get(i)) {
+                    return false;
+                }
             }
+        } catch (CustomArrayException e) {
+            // exception is caught in case of different lengths
+            return false;
         }
 
         return true;

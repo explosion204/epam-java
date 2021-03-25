@@ -2,10 +2,11 @@ package com.explosion204.custom_array.action.impl;
 
 import com.explosion204.custom_array.CustomArray;
 import com.explosion204.custom_array.action.ArrayAggregationService;
+import com.explosion204.custom_array.exception.CustomArrayException;
 
 public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     @Override
-    public int findMin(CustomArray array) {
+    public int findMin(CustomArray array) throws CustomArrayException {
         int min = array.get(0);
 
         for (int i = 1; i < array.getLength(); i++) {
@@ -18,7 +19,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     }
 
     @Override
-    public int findMax(CustomArray array) {
+    public int findMax(CustomArray array) throws CustomArrayException {
         int max = array.get(0);
 
         for (int i = 1; i < array.getLength(); i++) {
@@ -31,7 +32,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     }
 
     @Override
-    public double findAvg(CustomArray array) {
+    public double findAvg(CustomArray array) throws CustomArrayException {
         int sum = 0;
 
         for (int i = 0; i < array.getLength(); i++) {
@@ -42,7 +43,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     }
 
     @Override
-    public long findSum(CustomArray array) {
+    public long findSum(CustomArray array) throws CustomArrayException {
         int sum = 0;
 
         for (int i = 0; i < array.getLength(); i++) {
@@ -53,7 +54,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     }
 
     @Override
-    public int findPositivesCount(CustomArray array) {
+    public int findPositivesCount(CustomArray array) throws CustomArrayException {
         int count = 0;
 
         for (int i = 0; i < array.getLength(); i++) {
@@ -68,7 +69,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     }
 
     @Override
-    public int findNegativesCount(CustomArray array) {
+    public int findNegativesCount(CustomArray array) throws CustomArrayException {
         int count = 0;
 
         for (int i = 0; i < array.getLength(); i++) {

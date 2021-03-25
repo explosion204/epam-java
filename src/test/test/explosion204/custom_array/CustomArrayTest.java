@@ -2,8 +2,7 @@ package test.explosion204.custom_array;
 
 import com.explosion204.custom_array.CustomArray;
 
-import com.explosion204.custom_array.exception.ArrayInvalidIndexException;
-import com.explosion204.custom_array.exception.ArrayInvalidLengthException;
+import com.explosion204.custom_array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,20 +22,20 @@ public class CustomArrayTest {
     }
 
     @Test
-    public void testGet() {
+    public void testGet() throws CustomArrayException {
         int actual = fourthArray.get(1);
 
         int expected = 2;
         Assert.assertEquals(actual, expected);
     }
 
-    @Test(expectedExceptions = ArrayInvalidIndexException.class)
-    public void testGetException() {
+    @Test(expectedExceptions = CustomArrayException.class)
+    public void testGetException() throws CustomArrayException {
         fourthArray.get(2);
     }
 
     @Test
-    public void testSet() {
+    public void testSet() throws CustomArrayException {
         fourthArray.set(0, 1);
 
         int actual = fourthArray.get(0);
@@ -45,8 +44,8 @@ public class CustomArrayTest {
         Assert.assertEquals(actual, expected);
     }
 
-    @Test(expectedExceptions = ArrayInvalidIndexException.class)
-    public void testSetException() {
+    @Test(expectedExceptions = CustomArrayException.class)
+    public void testSetException() throws CustomArrayException {
         fourthArray.set(2, 1);
     }
 
