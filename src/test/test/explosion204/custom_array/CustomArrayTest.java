@@ -1,7 +1,8 @@
 package test.explosion204.custom_array;
 
-import com.explosion204.custom_array.CustomArray;
+import com.explosion204.custom_array.entity.CustomArray;
 
+import com.explosion204.custom_array.entity.CustomArrayCreator;
 import com.explosion204.custom_array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -15,10 +16,11 @@ public class CustomArrayTest {
 
     @BeforeClass
     public void setUp() {
-        firstArray = new CustomArray(5, 17, 6);
-        secondArray = new CustomArray(5, 17, 6);
-        thirdArray = new CustomArray(5, 17, 1);
-        fourthArray = new CustomArray(5, 2);
+        CustomArrayCreator creator = new CustomArrayCreator();
+        firstArray = creator.createArrayFromValues(5, 17, 6);
+        secondArray = creator.createArrayFromValues(5, 17, 6);
+        thirdArray = creator.createArrayFromValues(5, 17, 1);
+        fourthArray = creator.createArrayFromValues(5, 2);
     }
 
     @Test

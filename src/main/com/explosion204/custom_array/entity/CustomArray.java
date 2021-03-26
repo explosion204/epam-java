@@ -1,15 +1,15 @@
-package com.explosion204.custom_array;
+package com.explosion204.custom_array.entity;
 
 import com.explosion204.custom_array.exception.CustomArrayException;
 
 public class CustomArray {
     private int[] internalCollection;
 
-    public CustomArray() {
+    CustomArray() {
         internalCollection = new int[0];
     }
 
-    public CustomArray(int ... values) {
+    CustomArray(int ... values) {
         internalCollection = values.clone();
     }
 

@@ -1,6 +1,6 @@
 package com.explosion204.custom_array.action;
 
-import com.explosion204.custom_array.CustomArray;
+import com.explosion204.custom_array.entity.CustomArray;
 import com.explosion204.custom_array.exception.CustomArrayException;
 
 import java.util.function.Predicate;

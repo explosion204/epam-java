@@ -1,9 +1,8 @@
 package com.explosion204.custom_array.action.impl;
 
-import com.explosion204.custom_array.CustomArray;
+import com.explosion204.custom_array.entity.CustomArray;
 import com.explosion204.custom_array.action.ArrayManipulationService;
-import com.explosion204.custom_array.creator.CustomArrayCreator;
-import com.explosion204.custom_array.creator.impl.CustomArrayCreatorImpl;
+import com.explosion204.custom_array.entity.CustomArrayCreator;
 import com.explosion204.custom_array.exception.CustomArrayException;
 
 import java.util.function.Predicate;
@@ -35,7 +34,7 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
             throw new CustomArrayException("Array length must be greater then zero");
         }
 
-        CustomArrayCreator arrayCreator = new CustomArrayCreatorImpl();
+        CustomArrayCreator arrayCreator = new CustomArrayCreator();
         int arrayLength = array.getLength();
         internalMergeSort(arrayCreator, array, arrayLength);
     }

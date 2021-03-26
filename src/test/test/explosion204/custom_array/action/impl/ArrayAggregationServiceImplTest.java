@@ -1,8 +1,9 @@
 package test.explosion204.custom_array.action.impl;
 
-import com.explosion204.custom_array.CustomArray;
+import com.explosion204.custom_array.entity.CustomArray;
 import com.explosion204.custom_array.action.ArrayAggregationService;
 import com.explosion204.custom_array.action.impl.ArrayAggregationServiceImpl;
+import com.explosion204.custom_array.entity.CustomArrayCreator;
 import com.explosion204.custom_array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -14,7 +15,8 @@ public class ArrayAggregationServiceImplTest {
 
     @BeforeClass
     public void setUp() {
-        initialArray = new CustomArray(5, 17, 6, -3, -2, 126, 5, 15, 15, 4);
+        CustomArrayCreator creator = new CustomArrayCreator();
+        initialArray = creator.createArrayFromValues(5, 17, 6, -3, -2, 126, 5, 15, 15, 4);
         service = new ArrayAggregationServiceImpl();
     }
 
