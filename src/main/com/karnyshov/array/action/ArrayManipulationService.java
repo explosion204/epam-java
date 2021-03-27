@@ -1,7 +1,7 @@
-package com.explosion204.custom_array.action;
+package com.karnyshov.array.action;
 
-import com.explosion204.custom_array.entity.CustomArray;
-import com.explosion204.custom_array.exception.CustomArrayException;
+import com.karnyshov.array.entity.CustomArray;
+import com.karnyshov.array.exception.CustomArrayException;
 
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;

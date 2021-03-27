@@ -1,8 +1,8 @@
-package com.explosion204.custom_array.action.impl;
+package com.karnyshov.array.action.impl;
 
-import com.explosion204.custom_array.entity.CustomArray;
-import com.explosion204.custom_array.action.ArrayAggregationService;
-import com.explosion204.custom_array.exception.CustomArrayException;
+import com.karnyshov.array.entity.CustomArray;
+import com.karnyshov.array.action.ArrayAggregationService;
+import com.karnyshov.array.exception.CustomArrayException;
 
 public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     @Override

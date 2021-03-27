@@ -1,7 +1,6 @@
-package com.explosion204.custom_array.entity;
+package com.karnyshov.array.entity;
 
-import com.explosion204.custom_array.entity.CustomArray;
-import com.explosion204.custom_array.exception.CustomArrayException;
+import com.karnyshov.array.exception.CustomArrayException;
 
 public class CustomArrayCreator {
     public CustomArray createEmptyArray(int length) throws CustomArrayException {

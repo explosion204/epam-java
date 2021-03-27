@@ -1,4 +1,4 @@
-package com.explosion204.custom_array.exception;
+package com.karnyshov.array.exception;
 
 public class CustomArrayException extends Exception {
     public CustomArrayException(String message) {

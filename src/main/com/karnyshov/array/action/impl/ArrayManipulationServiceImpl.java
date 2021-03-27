@@ -1,9 +1,9 @@
-package com.explosion204.custom_array.action.impl;
+package com.karnyshov.array.action.impl;
 
-import com.explosion204.custom_array.entity.CustomArray;
-import com.explosion204.custom_array.action.ArrayManipulationService;
-import com.explosion204.custom_array.entity.CustomArrayCreator;
-import com.explosion204.custom_array.exception.CustomArrayException;
+import com.karnyshov.array.entity.CustomArray;
+import com.karnyshov.array.action.ArrayManipulationService;
+import com.karnyshov.array.entity.CustomArrayCreator;
+import com.karnyshov.array.exception.CustomArrayException;
 
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
@@ -11,7 +11,7 @@ import java.util.function.UnaryOperator;
 public class ArrayManipulationServiceImpl implements ArrayManipulationService {
     @Override
     public void replace(CustomArray array, Predicate<Integer> predicate,
-            UnaryOperator<Integer> transform) throws CustomArrayException {
+                        UnaryOperator<Integer> transform) throws CustomArrayException {
         if (array == null || array.getLength() < 1) {
             throw new CustomArrayException("Array length must be greater then zero");
         }

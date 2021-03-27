@@ -1,6 +1,6 @@
-package com.explosion204.custom_array.entity;
+package com.karnyshov.array.entity;
 
-import com.explosion204.custom_array.exception.CustomArrayException;
+import com.karnyshov.array.exception.CustomArrayException;
 
 public class CustomArray {
     private int[] internalCollection;

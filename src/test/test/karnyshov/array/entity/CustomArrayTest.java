@@ -1,9 +1,9 @@
-package test.explosion204.custom_array;
+package test.karnyshov.array.entity;
 
-import com.explosion204.custom_array.entity.CustomArray;
+import com.karnyshov.array.entity.CustomArray;
 
-import com.explosion204.custom_array.entity.CustomArrayCreator;
-import com.explosion204.custom_array.exception.CustomArrayException;
+import com.karnyshov.array.entity.CustomArrayCreator;
+import com.karnyshov.array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

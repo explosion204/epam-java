@@ -1,10 +1,10 @@
-package test.explosion204.custom_array.action.impl;
+package test.karnyshov.array.action.impl;
 
-import com.explosion204.custom_array.entity.CustomArray;
-import com.explosion204.custom_array.action.ArrayManipulationService;
-import com.explosion204.custom_array.action.impl.ArrayManipulationServiceImpl;
-import com.explosion204.custom_array.entity.CustomArrayCreator;
-import com.explosion204.custom_array.exception.CustomArrayException;
+import com.karnyshov.array.entity.CustomArray;
+import com.karnyshov.array.action.ArrayManipulationService;
+import com.karnyshov.array.action.impl.ArrayManipulationServiceImpl;
+import com.karnyshov.array.entity.CustomArrayCreator;
+import com.karnyshov.array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
