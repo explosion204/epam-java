@@ -1,6 +1,6 @@
-package com.karnyshov.array.validator.impl;
+package com.karnyshov.array.validation.impl;
 
-import com.karnyshov.array.validator.ArrayValidator;
+import com.karnyshov.array.validation.ArrayValidator;
 
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -18,13 +18,14 @@ public class ArrayValidatorImpl implements ArrayValidator {
             try {
                 Integer decodedVal = Integer.decode(stringVal);
                 integers.add(decodedVal);
-            } catch (NumberFormatException e) { }
+            } catch (NumberFormatException e) {
+                return new int[0];
+            }
         }
 
         Stream<Integer> integerStream = integers.stream();
         IntStream intStream = integerStream.mapToInt(x -> x);
-        int[] resultValues = intStream.toArray();
 
-        return resultValues;
+        return intStream.toArray();
     }
 }

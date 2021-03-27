@@ -1,7 +1,7 @@
 package com.karnyshov.array.action.impl;
 
-import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.action.ArrayManipulationService;
+import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.exception.CustomArrayException;
 
 import java.util.function.Predicate;

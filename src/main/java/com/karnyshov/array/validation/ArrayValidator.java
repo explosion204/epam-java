@@ -1,6 +1,4 @@
-package com.karnyshov.array.validator;
-
-import java.util.Optional;
+package com.karnyshov.array.validation;
 
 public interface ArrayValidator {
     int[] validate(String line);

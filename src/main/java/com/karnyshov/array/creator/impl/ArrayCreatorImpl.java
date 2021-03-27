@@ -1,12 +1,12 @@
 package com.karnyshov.array.creator.impl;
 
+import com.karnyshov.array.validation.ArrayValidator;
 import com.karnyshov.array.creator.ArrayCreator;
 import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.exception.CustomArrayException;
 import com.karnyshov.array.parser.FileParser;
 import com.karnyshov.array.parser.impl.FileParserImpl;
-import com.karnyshov.array.validator.ArrayValidator;
-import com.karnyshov.array.validator.impl.ArrayValidatorImpl;
+import com.karnyshov.array.validation.impl.ArrayValidatorImpl;
 
 import java.io.IOException;
 
