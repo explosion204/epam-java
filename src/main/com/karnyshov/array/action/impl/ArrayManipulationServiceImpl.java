@@ -2,7 +2,6 @@ package com.karnyshov.array.action.impl;
 
 import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.action.ArrayManipulationService;
-import com.karnyshov.array.entity.CustomArrayCreator;
 import com.karnyshov.array.exception.CustomArrayException;
 
 import java.util.function.Predicate;
@@ -34,20 +33,19 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
             throw new CustomArrayException("Array length must be greater then zero");
         }
 
-        CustomArrayCreator arrayCreator = new CustomArrayCreator();
         int arrayLength = array.getLength();
-        internalMergeSort(arrayCreator, array, arrayLength);
+        internalMergeSort(array, arrayLength);
     }
 
-    private void internalMergeSort(CustomArrayCreator creator, CustomArray array, int length)
+    private void internalMergeSort(CustomArray array, int length)
             throws CustomArrayException {
         if (length < 2) {
             return;
         }
 
         int middle = length / 2;
-        CustomArray leftArr = creator.createEmptyArray(middle);
-        CustomArray rightArr = creator.createEmptyArray(length - middle);
+        CustomArray leftArr = CustomArray.createEmptyArray(middle);
+        CustomArray rightArr = CustomArray.createEmptyArray(length - middle);
 
         for (int i = 0; i < middle; i++) {
             int number = array.get(i);
@@ -59,8 +57,8 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
             rightArr.set(i - middle, number);
         }
 
-        internalMergeSort(creator, leftArr, middle);
-        internalMergeSort(creator, rightArr, length - middle);
+        internalMergeSort(leftArr, middle);
+        internalMergeSort(rightArr, length - middle);
 
         int i = 0;
         int j = 0;

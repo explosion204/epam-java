@@ -5,16 +5,29 @@ import com.karnyshov.array.exception.CustomArrayException;
 public class CustomArray {
     private int[] internalCollection;
 
-    CustomArray() {
+    private CustomArray() {
         internalCollection = new int[0];
     }
 
-    CustomArray(int ... values) {
+    private CustomArray(int ... values) {
         internalCollection = values.clone();
     }
 
     public int getLength() {
         return internalCollection.length;
+    }
+
+    public static CustomArray createEmptyArray(int length) throws CustomArrayException {
+        if (length < 0) {
+            throw new CustomArrayException("Array length must not be less than zero");
+        }
+
+        int[] values = new int[length];
+        return new CustomArray(values);
+    }
+
+    public static CustomArray createArrayFromValues(int... values) {
+        return new CustomArray(values);
     }
 
     public int get(int index) throws CustomArrayException {

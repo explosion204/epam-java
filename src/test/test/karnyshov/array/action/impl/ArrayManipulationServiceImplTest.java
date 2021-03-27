@@ -3,7 +3,6 @@ package test.karnyshov.array.action.impl;
 import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.action.ArrayManipulationService;
 import com.karnyshov.array.action.impl.ArrayManipulationServiceImpl;
-import com.karnyshov.array.entity.CustomArrayCreator;
 import com.karnyshov.array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -14,17 +13,15 @@ import java.util.function.UnaryOperator;
 
 public class ArrayManipulationServiceImplTest {
     private ArrayManipulationService service;
-    private CustomArrayCreator creator;
 
     @BeforeClass
     public void setUp() {
         service = new ArrayManipulationServiceImpl();
-        creator = new CustomArrayCreator();
     }
 
     @Test
     public void testReplace() throws CustomArrayException {
-        CustomArray testArray = creator.createArrayFromValues(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
+        CustomArray testArray = CustomArray.createArrayFromValues(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
 
         Predicate<Integer> predicate = (value) -> value % 2 == 0;
         UnaryOperator<Integer> transform = (value) -> ++value;
@@ -38,7 +35,7 @@ public class ArrayManipulationServiceImplTest {
 
     @Test
     public void testMergeSort() throws CustomArrayException {
-        CustomArray testArray = creator.createArrayFromValues(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
+        CustomArray testArray = CustomArray.createArrayFromValues(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
 
         service.mergeSort(testArray);
 

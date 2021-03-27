@@ -2,7 +2,6 @@ package test.karnyshov.array.entity;
 
 import com.karnyshov.array.entity.CustomArray;
 
-import com.karnyshov.array.entity.CustomArrayCreator;
 import com.karnyshov.array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -16,11 +15,10 @@ public class CustomArrayTest {
 
     @BeforeClass
     public void setUp() {
-        CustomArrayCreator creator = new CustomArrayCreator();
-        firstArray = creator.createArrayFromValues(5, 17, 6);
-        secondArray = creator.createArrayFromValues(5, 17, 6);
-        thirdArray = creator.createArrayFromValues(5, 17, 1);
-        fourthArray = creator.createArrayFromValues(5, 2);
+        firstArray = CustomArray.createArrayFromValues(5, 17, 6);
+        secondArray = CustomArray.createArrayFromValues(5, 17, 6);
+        thirdArray = CustomArray.createArrayFromValues(5, 17, 1);
+        fourthArray = CustomArray.createArrayFromValues(5, 2);
     }
 
     @Test

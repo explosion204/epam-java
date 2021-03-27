@@ -3,7 +3,6 @@ package test.karnyshov.array.action.impl;
 import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.action.ArrayAggregationService;
 import com.karnyshov.array.action.impl.ArrayAggregationServiceImpl;
-import com.karnyshov.array.entity.CustomArrayCreator;
 import com.karnyshov.array.exception.CustomArrayException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -15,8 +14,7 @@ public class ArrayAggregationServiceImplTest {
 
     @BeforeClass
     public void setUp() {
-        CustomArrayCreator creator = new CustomArrayCreator();
-        initialArray = creator.createArrayFromValues(5, 17, 6, -3, -2, 126, 5, 15, 15, 4);
+        initialArray = CustomArray.createArrayFromValues(5, 17, 6, -3, -2, 126, 5, 15, 15, 4);
         service = new ArrayAggregationServiceImpl();
     }
 
