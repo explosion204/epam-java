@@ -34,6 +34,10 @@ public class CustomArray {
         return new CustomArray(values);
     }
 
+    public int[] toIntArray() {
+        return internalCollection;
+    }
+
     public int get(int index) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
             String errorMsg = "Array index is out of bounds";

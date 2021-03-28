@@ -6,121 +6,119 @@ import com.karnyshov.array.exception.CustomArrayException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     private static final Logger logger = LogManager.getLogger();
 
     @Override
     public int findMin(CustomArray array) throws CustomArrayException {
-        if (array == null || array.getLength() < 1) {
+        if (array == null) {
+            logger.error("Array equals to null (findMin)");
+            throw new CustomArrayException("Array cannot be null");
+        }
+
+        IntStream stream = getIntStream(array);
+        OptionalInt result = stream.min();
+
+        if (result.isEmpty()) {
             logger.error("Array length is less than zero or equals to null (findMin)");
             throw new CustomArrayException("Array length must be greater then zero");
         }
 
-        int min = array.get(0);
-
-        for (int i = 1; i < array.getLength(); i++) {
-            if (array.get(i) < min) {
-                min = array.get(i);
-            }
-        }
-
-        logger.debug("Found min value: " + min);
-        return min;
+        int minValue = result.getAsInt();
+        logger.debug("Found min value: " + minValue);
+        return minValue;
     }
 
     @Override
     public int findMax(CustomArray array) throws CustomArrayException {
-        if (array == null || array.getLength() < 1) {
+        if (array == null) {
+            logger.error("Array equals to null (findMax)");
+            throw new CustomArrayException("Array cannot be null");
+        }
+
+        IntStream stream = getIntStream(array);
+        OptionalInt result = stream.max();
+
+        if (result.isEmpty()) {
             logger.error("Array length is less than zero or equals to null (findMax)");
             throw new CustomArrayException("Array length must be greater then zero");
         }
 
-        int max = array.get(0);
-
-        for (int i = 1; i < array.getLength(); i++) {
-            if (array.get(i) > max) {
-                max = array.get(i);
-            }
-        }
-
-        logger.debug("Found max value: " + max);
-        return max;
+        int minValue = result.getAsInt();
+        logger.debug("Found min value: " + minValue);
+        return minValue;
     }
 
     @Override
     public double findAvg(CustomArray array) throws CustomArrayException {
-        if (array == null || array.getLength() < 1) {
+        if (array == null) {
+            logger.error("Array equals to null (findAvg)");
+            throw new CustomArrayException("Array cannot be null");
+        }
+
+        IntStream stream = getIntStream(array);
+        OptionalDouble result = stream.average();
+
+        if (result.isEmpty()) {
             logger.error("Array length is less than zero or equals to null (findAvg)");
             throw new CustomArrayException("Array length must be greater then zero");
         }
 
-        int sum = 0;
-
-        for (int i = 0; i < array.getLength(); i++) {
-            sum += array.get(i);
-        }
-
-        double avg = (double) sum / array.getLength();
-        logger.debug("Found average value of array elements: " + avg);
-        return avg;
+        double avgValue = result.getAsDouble();
+        logger.debug("Found avg value: " + avgValue);
+        return avgValue;
     }
 
     @Override
     public long findSum(CustomArray array) throws CustomArrayException {
-        if (array == null || array.getLength() < 1) {
-            logger.error("Array length is less than zero or equals to null (findSum)");
-            throw new CustomArrayException("Array length must be greater then zero");
+        if (array == null) {
+            logger.error("Array equals to null (findSum)");
+            throw new CustomArrayException("Array cannot be null");
         }
 
-        int sum = 0;
-
-        for (int i = 0; i < array.getLength(); i++) {
-            sum += array.get(i);
-        }
-
+        IntStream stream = getIntStream(array);
+        int sum = stream.sum();
         logger.debug("Found sum of array elements: " + sum);
         return sum;
     }
 
     @Override
-    public int findPositivesCount(CustomArray array) throws CustomArrayException {
-        if (array == null || array.getLength() < 1) {
-            logger.error("Array length is less than zero or equals to null (findPositivesCount)");
-            throw new CustomArrayException("Array length must be greater then zero");
+    public long findPositivesCount(CustomArray array) throws CustomArrayException {
+        if (array == null) {
+            logger.error("Array equals to null (findPositivesCount)");
+            throw new CustomArrayException("Array cannot be null");
         }
 
-        int count = 0;
-
-        for (int i = 0; i < array.getLength(); i++) {
-            int number = array.get(i);
-
-            if (number >= 0) {
-                count++;
-            }
-        }
+        IntStream stream = getIntStream(array);
+        stream = stream.filter(x -> x >= 0);
+        long count = stream.count();
 
         logger.debug("Found " + count + " positive elements in array");
         return count;
     }
 
     @Override
-    public int findNegativesCount(CustomArray array) throws CustomArrayException {
-        if (array == null || array.getLength() < 1) {
-            logger.error("Array length is less than zero or equals to null (findNegativesCount)");
-            throw new CustomArrayException("Array length must be greater then zero");
+    public long findNegativesCount(CustomArray array) throws CustomArrayException {
+        if (array == null) {
+            logger.error("Array equals to null (findPositivesCount)");
+            throw new CustomArrayException("Array cannot be null");
         }
 
-        int count = 0;
-
-        for (int i = 0; i < array.getLength(); i++) {
-            int number = array.get(i);
-
-            if (number < 0) {
-                count++;
-            }
-        }
+        IntStream stream = getIntStream(array);
+        stream = stream.filter(x -> x < 0);
+        long count = stream.count();
 
         logger.debug("Found " + count + " negative elements in array");
         return count;
+    }
+
+    private IntStream getIntStream(CustomArray array) {
+        int[] intArray = array.toIntArray();
+        return IntStream.of(intArray);
     }
 }

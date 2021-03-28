@@ -52,16 +52,16 @@ public class ArrayAggregationServiceImplTest {
 
     @Test
     public void testFindPositivesCount() throws CustomArrayException {
-        int actual = service.findPositivesCount(initialArray);
-        int expected = 8;
+        long actual = service.findPositivesCount(initialArray);
+        long expected = 8;
 
         Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void testFindNegativesCount() throws CustomArrayException {
-        int actual = service.findNegativesCount(initialArray);
-        int expected = 2;
+        long actual = service.findNegativesCount(initialArray);
+        long expected = 2;
 
         Assert.assertEquals(actual, expected);
     }

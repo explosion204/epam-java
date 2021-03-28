@@ -8,6 +8,6 @@ public interface ArrayAggregationService {
     int findMax(CustomArray array) throws CustomArrayException;
     double findAvg(CustomArray array) throws CustomArrayException;
     long findSum(CustomArray array) throws CustomArrayException;
-    int findPositivesCount(CustomArray array) throws CustomArrayException;
-    int findNegativesCount(CustomArray array) throws CustomArrayException;
+    long findPositivesCount(CustomArray array) throws CustomArrayException;
+    long findNegativesCount(CustomArray array) throws CustomArrayException;
 }
