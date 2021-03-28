@@ -22,7 +22,6 @@ public class ArrayManipulationServiceImplTest {
     @Test
     public void testReplace() throws CustomArrayException {
         CustomArray testArray = CustomArray.createArrayFromValues(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
-
         Predicate<Integer> predicate = (value) -> value % 2 == 0;
         UnaryOperator<Integer> transform = (value) -> ++value;
 
@@ -36,8 +35,27 @@ public class ArrayManipulationServiceImplTest {
     @Test
     public void testMergeSort() throws CustomArrayException {
         CustomArray testArray = CustomArray.createArrayFromValues(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
-
         service.mergeSort(testArray);
+
+        String actual = testArray.toString();
+        String expected = "{ 2 3 4 5 5 6 15 15 17 126 }";
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testQuickSort() throws CustomArrayException {
+        CustomArray testArray = CustomArray.createArrayFromValues(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
+        service.quickSort(testArray);
+
+        String actual = testArray.toString();
+        String expected = "{ 2 3 4 5 5 6 15 15 17 126 }";
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void testInsertionSort() throws CustomArrayException {
+        CustomArray testArray = CustomArray.createArrayFromValues(5, 17, 6, 3, 2, 126, 5, 15, 15, 4);
+        service.insertionSort(testArray);
 
         String actual = testArray.toString();
         String expected = "{ 2 3 4 5 5 6 15 15 17 126 }";

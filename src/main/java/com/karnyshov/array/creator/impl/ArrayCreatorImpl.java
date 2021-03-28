@@ -7,10 +7,14 @@ import com.karnyshov.array.exception.CustomArrayException;
 import com.karnyshov.array.parser.FileParser;
 import com.karnyshov.array.parser.impl.FileParserImpl;
 import com.karnyshov.array.validation.impl.ArrayValidatorImpl;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
 public class ArrayCreatorImpl implements ArrayCreator {
+    private static Logger logger = LogManager.getLogger();
+
     @Override
     public CustomArray createFromFile(String filePath) throws CustomArrayException {
         FileParser parser = new FileParserImpl();
@@ -31,12 +35,16 @@ public class ArrayCreatorImpl implements ArrayCreator {
             }
 
             if (values == null) {
-                throw new CustomArrayException("Specified file does not contain any valid data");
+                String errorMsg = "Specified file does not contain any valid data";
+                logger.error(errorMsg);
+                throw new CustomArrayException(errorMsg);
             }
 
             return CustomArray.createArrayFromValues(values);
         } catch (IOException e) {
-            throw new CustomArrayException("Unable to open file with following path: " + filePath);
+            String errorMsg = "Unable to open file with following path: " + filePath;
+            logger.error(errorMsg);
+            throw new CustomArrayException(errorMsg);
         }
     }
 }

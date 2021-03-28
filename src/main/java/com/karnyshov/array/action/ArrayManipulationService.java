@@ -10,4 +10,6 @@ public interface ArrayManipulationService {
     void replace(CustomArray array, Predicate<Integer> predicate,
                  UnaryOperator<Integer> transform) throws CustomArrayException;
     void mergeSort(CustomArray array) throws CustomArrayException;
+    void quickSort(CustomArray array) throws CustomArrayException;
+    void insertionSort(CustomArray array) throws CustomArrayException;
 }

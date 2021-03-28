@@ -1,9 +1,12 @@
 package com.karnyshov.array.entity;
 
 import com.karnyshov.array.exception.CustomArrayException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CustomArray {
-    private int[] internalCollection;
+    private static Logger logger = LogManager.getLogger();
+    private final int[] internalCollection;
 
     private CustomArray() {
         internalCollection = new int[0];
@@ -19,6 +22,7 @@ public class CustomArray {
 
     public static CustomArray createEmptyArray(int length) throws CustomArrayException {
         if (length < 0) {
+            logger.error("Negative array length");
             throw new CustomArrayException("Array length must not be less than zero");
         }
 
@@ -32,7 +36,9 @@ public class CustomArray {
 
     public int get(int index) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
-            throw new CustomArrayException("Array index is out of bounds");
+            String errorMsg = "Array index is out of bounds";
+            logger.error(errorMsg);
+            throw new CustomArrayException(errorMsg);
         }
 
         return internalCollection[index];
@@ -40,7 +46,9 @@ public class CustomArray {
 
     public void set(int index, int number) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
-            throw new CustomArrayException("Array index is out of bounds");
+            String errorMsg = "Array index is out of bounds";
+            logger.error(errorMsg);
+            throw new CustomArrayException(errorMsg);
         }
 
         internalCollection[index] = number;
