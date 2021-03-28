@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 
 public class ArrayCreatorImpl implements ArrayCreator {
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public CustomArray createFromFile(String filePath) throws CustomArrayException {
@@ -35,7 +35,7 @@ public class ArrayCreatorImpl implements ArrayCreator {
             }
 
             if (values == null) {
-                String errorMsg = "Specified file does not contain any valid data";
+                String errorMsg = "Specified file " + filePath + " does not contain any valid data";
                 logger.error(errorMsg);
                 throw new CustomArrayException(errorMsg);
             }

@@ -3,12 +3,11 @@ package com.karnyshov.array.action.impl;
 import com.karnyshov.array.action.ArrayAggregationService;
 import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.exception.CustomArrayException;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ArrayAggregationServiceImpl implements ArrayAggregationService {
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public int findMin(CustomArray array) throws CustomArrayException {

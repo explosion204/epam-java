@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
 public class ArrayManipulationServiceImpl implements ArrayManipulationService {
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public void replace(CustomArray array, Predicate<Integer> predicate,
@@ -164,6 +164,4 @@ public class ArrayManipulationServiceImpl implements ArrayManipulationService {
             j++;
         }
     }
-
-
 }
