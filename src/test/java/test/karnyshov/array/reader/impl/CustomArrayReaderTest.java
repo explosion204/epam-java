@@ -1,20 +1,19 @@
-package test.karnyshov.array.parser.impl;
+package test.karnyshov.array.reader.impl;
 
-import com.karnyshov.array.parser.FileParser;
-import com.karnyshov.array.parser.impl.FileParserImpl;
+import com.karnyshov.array.exception.CustomArrayException;
+import com.karnyshov.array.reader.CustomArrayReader;
+import com.karnyshov.array.reader.impl.CustomArrayReaderImpl;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
-public class FileParserImplTest {
-    FileParser parser;
+public class CustomArrayReaderTest {
+    private CustomArrayReader reader;
 
     @BeforeClass
     public void setUp() {
-        parser = new FileParserImpl();
+        reader = new CustomArrayReaderImpl();
     }
 
     @DataProvider(name = "file-data-provider")
@@ -28,10 +27,16 @@ public class FileParserImplTest {
     }
 
     @Test(dataProvider = "file-data-provider")
-    public void testParseData(String filePath, String[] expectedArray)
-            throws IOException {
-        String[] actualArray = parser.parseFile(filePath);
+    public void testFromFile(String filePath, String[] expectedArray)
+            throws CustomArrayException {
+        String[] actualArray = reader.readFromFile(filePath);
 
         Assert.assertEquals(actualArray, expectedArray);
+    }
+
+    @Test(expectedExceptions = CustomArrayException.class)
+    public void testFromFileWithInvalidPath()
+            throws CustomArrayException {
+        reader.readFromFile("wrongPath");
     }
 }
