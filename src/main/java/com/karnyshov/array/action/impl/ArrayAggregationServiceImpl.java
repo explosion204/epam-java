@@ -20,17 +20,12 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = createIntStream(array);
-        OptionalInt result = stream.min();
-
-        if (result.isEmpty()) {
-            logger.error("Array length is less than zero or equals to null (findMin)");
-            throw new CustomArrayException("Array length must be greater then zero");
-        }
-
-        int minValue = result.getAsInt();
-        logger.debug("Found min value: " + minValue);
-        return minValue;
+        return createIntStream(array)
+                .min()
+                .orElseThrow(() -> {
+                    logger.error("Array length is less than zero or equals to null (findMin)");
+                    return new CustomArrayException("Array length must be greater then zero");
+                });
     }
 
     @Override
@@ -40,17 +35,12 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = createIntStream(array);
-        OptionalInt result = stream.max();
-
-        if (result.isEmpty()) {
-            logger.error("Array length is less than zero or equals to null (findMax)");
-            throw new CustomArrayException("Array length must be greater then zero");
-        }
-
-        int minValue = result.getAsInt();
-        logger.debug("Found min value: " + minValue);
-        return minValue;
+        return createIntStream(array)
+                .max()
+                .orElseThrow(() -> {
+                    logger.error("Array length is less than zero or equals to null (findMax)");
+                    return new CustomArrayException("Array length must be greater then zero");
+                });
     }
 
     @Override
@@ -60,17 +50,12 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = createIntStream(array);
-        OptionalDouble result = stream.average();
-
-        if (result.isEmpty()) {
-            logger.error("Array length is less than zero or equals to null (findAvg)");
-            throw new CustomArrayException("Array length must be greater then zero");
-        }
-
-        double avgValue = result.getAsDouble();
-        logger.debug("Found avg value: " + avgValue);
-        return avgValue;
+        return createIntStream(array)
+                .average()
+                .orElseThrow(() -> {
+                    logger.error("Array length is less than zero or equals to null (findAvg)");
+                    return new CustomArrayException("Array length must be greater then zero");
+                });
     }
 
     @Override
@@ -80,10 +65,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = createIntStream(array);
-        int sum = stream.sum();
-        logger.debug("Found sum of array elements: " + sum);
-        return sum;
+        return createIntStream(array).sum();
     }
 
     @Override
@@ -93,12 +75,9 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = createIntStream(array);
-        stream = stream.filter(x -> x >= 0);
-        long count = stream.count();
-
-        logger.debug("Found " + count + " positive elements in array");
-        return count;
+        return createIntStream(array)
+                .filter(x -> x >= 0)
+                .count();
     }
 
     @Override
@@ -108,12 +87,9 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = createIntStream(array);
-        stream = stream.filter(x -> x < 0);
-        long count = stream.count();
-
-        logger.debug("Found " + count + " negative elements in array");
-        return count;
+        return createIntStream(array)
+                .filter(x -> x < 0)
+                .count();
     }
 
     private IntStream createIntStream(CustomArray array) {
