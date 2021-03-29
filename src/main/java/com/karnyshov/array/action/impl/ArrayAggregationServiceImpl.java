@@ -9,7 +9,6 @@ import org.apache.logging.log4j.Logger;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class ArrayAggregationServiceImpl implements ArrayAggregationService {
     private static final Logger logger = LogManager.getLogger();
@@ -21,7 +20,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = getIntStream(array);
+        IntStream stream = createIntStream(array);
         OptionalInt result = stream.min();
 
         if (result.isEmpty()) {
@@ -41,7 +40,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = getIntStream(array);
+        IntStream stream = createIntStream(array);
         OptionalInt result = stream.max();
 
         if (result.isEmpty()) {
@@ -61,7 +60,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = getIntStream(array);
+        IntStream stream = createIntStream(array);
         OptionalDouble result = stream.average();
 
         if (result.isEmpty()) {
@@ -81,7 +80,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = getIntStream(array);
+        IntStream stream = createIntStream(array);
         int sum = stream.sum();
         logger.debug("Found sum of array elements: " + sum);
         return sum;
@@ -94,7 +93,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = getIntStream(array);
+        IntStream stream = createIntStream(array);
         stream = stream.filter(x -> x >= 0);
         long count = stream.count();
 
@@ -109,7 +108,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
             throw new CustomArrayException("Array cannot be null");
         }
 
-        IntStream stream = getIntStream(array);
+        IntStream stream = createIntStream(array);
         stream = stream.filter(x -> x < 0);
         long count = stream.count();
 
@@ -117,7 +116,7 @@ public class ArrayAggregationServiceImpl implements ArrayAggregationService {
         return count;
     }
 
-    private IntStream getIntStream(CustomArray array) {
+    private IntStream createIntStream(CustomArray array) {
         int[] intArray = array.toIntArray();
         return IntStream.of(intArray);
     }
