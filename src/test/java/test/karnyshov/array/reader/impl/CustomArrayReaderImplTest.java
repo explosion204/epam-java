@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class CustomArrayReaderTest {
+public class CustomArrayReaderImplTest {
     private CustomArrayReader reader;
 
     @BeforeClass

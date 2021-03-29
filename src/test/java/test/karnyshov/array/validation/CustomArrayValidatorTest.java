@@ -1,4 +1,4 @@
-package test.karnyshov.array.validation.impl;
+package test.karnyshov.array.validation;
 
 import com.karnyshov.array.exception.CustomArrayException;
 import com.karnyshov.array.validation.CustomArrayValidator;
@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class CustomArrayValidatorImplTest {
+public class CustomArrayValidatorTest {
     @DataProvider(name = "valid-data")
     public Object[][] validDataProvider() {
         return new Object[][] {
@@ -34,8 +34,7 @@ public class CustomArrayValidatorImplTest {
     }
 
     @Test(dataProvider = "invalid-data")
-    public void testValidateWithInvalidData(String line)
-            throws CustomArrayException {
+    public void testValidateWithInvalidData(String line) {
         boolean actual = CustomArrayValidator.validate(line);
 
         Assert.assertFalse(actual);
