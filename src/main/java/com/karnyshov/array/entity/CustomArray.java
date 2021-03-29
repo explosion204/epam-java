@@ -4,9 +4,9 @@ import com.karnyshov.array.exception.CustomArrayException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class CustomArray {
+public class CustomArray implements Cloneable {
     private static Logger logger = LogManager.getLogger();
-    private final int[] internalCollection;
+    private int[] internalCollection;
 
     private CustomArray() {
         internalCollection = new int[0];
@@ -58,8 +58,11 @@ public class CustomArray {
         internalCollection[index] = number;
     }
 
-    public CustomArray getCopy() {
-        return new CustomArray(internalCollection.clone());
+    @Override
+    public CustomArray clone() throws CloneNotSupportedException {
+        CustomArray arrayCopy = (CustomArray) super.clone();
+        arrayCopy.internalCollection = internalCollection.clone();
+        return arrayCopy;
     }
 
     @Override

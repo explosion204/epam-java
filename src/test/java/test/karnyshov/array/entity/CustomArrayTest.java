@@ -50,16 +50,16 @@ public class CustomArrayTest {
     }
 
     @Test
-    public void testGetCopyObjectEquality() {
-        CustomArray arrayCopy = firstArray.getCopy();
+    public void testGetCopyObjectEquality() throws CloneNotSupportedException {
+        CustomArray arrayCopy = firstArray.clone();
         boolean comparison = firstArray.equals(arrayCopy);
 
         Assert.assertTrue(comparison);
     }
 
     @Test
-    public void testGetCopyHashCodeEquality() {
-        CustomArray arrayCopy = firstArray.getCopy();
+    public void testGetCopyHashCodeEquality() throws CloneNotSupportedException {
+        CustomArray arrayCopy = firstArray.clone();
 
         int actualHashCode = arrayCopy.hashCode();
         int expectedHashCode = firstArray.hashCode();
