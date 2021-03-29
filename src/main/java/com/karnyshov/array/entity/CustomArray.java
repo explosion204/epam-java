@@ -94,7 +94,7 @@ public class CustomArray implements Cloneable {
         CustomArray anotherArray = (CustomArray) obj;
         int anotherArrayLength = anotherArray.getLength();
 
-        if (getLength() != anotherArrayLength) {
+        if (internalCollection.length != anotherArrayLength) {
             return false;
         }
 
