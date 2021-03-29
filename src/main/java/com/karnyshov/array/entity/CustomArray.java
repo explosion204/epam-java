@@ -35,7 +35,7 @@ public class CustomArray {
     }
 
     public int[] toIntArray() {
-        return internalCollection;
+        return internalCollection.clone();
     }
 
     public int get(int index) throws CustomArrayException {
