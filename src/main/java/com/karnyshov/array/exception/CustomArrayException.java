@@ -1,6 +1,10 @@
 package com.karnyshov.array.exception;
 
 public class CustomArrayException extends Exception {
+    public CustomArrayException() {
+        super();
+    }
+
     public CustomArrayException(String message) {
         super(message);
     }
@@ -11,10 +15,5 @@ public class CustomArrayException extends Exception {
 
     public CustomArrayException(Throwable cause) {
         super(cause);
-    }
-
-    public CustomArrayException(String message, Throwable cause, boolean enableSuppression,
-            boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
     }
 }
