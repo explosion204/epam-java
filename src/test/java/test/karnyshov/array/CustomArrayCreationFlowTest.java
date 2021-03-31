@@ -8,13 +8,22 @@ import com.karnyshov.array.reader.impl.CustomArrayReaderImpl;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.net.URI;
+import java.net.URL;
+import java.nio.file.Paths;
+
 public class CustomArrayCreationFlowTest {
     private String[] strings;
 
     @Test
     public void testReadFromFile() throws CustomArrayException {
         CustomArrayReader reader = new CustomArrayReaderImpl();
-        strings = reader.readFromFile("test_data/test_data_01.txt");
+        ClassLoader loader = getClass().getClassLoader();
+        URL resource = loader.getResource("test_data/test_data_01.txt");
+        String filePath = new File(resource.getFile()).getAbsolutePath();
+
+        strings = reader.readFromFile(filePath);
     }
 
     @Test(dependsOnMethods = "testReadFromFile")

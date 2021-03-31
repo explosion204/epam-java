@@ -18,6 +18,15 @@
                 </configuration>
             </plugin>
         </plugins>
+
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources/test_data</directory>-->
+<!--                <includes>-->
+<!--                    <include>test_data_01.txt</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--        </resources>-->
     </build>
 
     <properties>
