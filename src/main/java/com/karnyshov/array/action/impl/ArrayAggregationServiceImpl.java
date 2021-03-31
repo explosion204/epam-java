@@ -6,8 +6,6 @@ import com.karnyshov.array.exception.CustomArrayException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class ArrayAggregationServiceImpl implements ArrayAggregationService {

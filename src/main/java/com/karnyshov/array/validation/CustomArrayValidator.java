@@ -3,7 +3,6 @@ package com.karnyshov.array.validation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CustomArrayValidator {
@@ -17,9 +16,6 @@ public class CustomArrayValidator {
             return false;
         }
 
-        Pattern pattern = Pattern.compile(NUM_PATTERN);
-        Matcher matcher = pattern.matcher(line);
-
-        return matcher.matches();
+        return Pattern.matches(NUM_PATTERN, line);
     }
 }
