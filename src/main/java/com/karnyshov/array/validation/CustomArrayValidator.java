@@ -16,6 +16,8 @@ public class CustomArrayValidator {
             return false;
         }
 
-        return Pattern.matches(NUM_PATTERN, string);
+        boolean validationResult = Pattern.matches(NUM_PATTERN, string);
+        logger.debug("Validation result: string '" + string + "' is " + (validationResult ? "valid" : "invalid"));
+        return validationResult;
     }
 }
