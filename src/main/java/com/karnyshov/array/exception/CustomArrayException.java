@@ -1,9 +1,7 @@
 package com.karnyshov.array.exception;
 
 public class CustomArrayException extends Exception {
-    public CustomArrayException() {
-        super();
-    }
+    public CustomArrayException() { }
 
     public CustomArrayException(String message) {
         super(message);

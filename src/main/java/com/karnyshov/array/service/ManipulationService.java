@@ -1,4 +1,4 @@
-package com.karnyshov.array.action;
+package com.karnyshov.array.service;
 
 import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.exception.CustomArrayException;
@@ -6,10 +6,7 @@ import com.karnyshov.array.exception.CustomArrayException;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
-public interface ArrayManipulationService {
+public interface ManipulationService {
     void replace(CustomArray array, Predicate<Integer> predicate,
                  UnaryOperator<Integer> transform) throws CustomArrayException;
-    void mergeSort(CustomArray array) throws CustomArrayException;
-    void quickSort(CustomArray array) throws CustomArrayException;
-    void insertionSort(CustomArray array) throws CustomArrayException;
 }

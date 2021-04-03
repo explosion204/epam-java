@@ -1,9 +1,9 @@
-package com.karnyshov.array.action;
+package com.karnyshov.array.service;
 
 import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.exception.CustomArrayException;
 
-public interface ArrayAggregationService {
+public interface AggregationService {
     int findMin(CustomArray array) throws CustomArrayException;
     int findMax(CustomArray array) throws CustomArrayException;
     double findAvg(CustomArray array) throws CustomArrayException;

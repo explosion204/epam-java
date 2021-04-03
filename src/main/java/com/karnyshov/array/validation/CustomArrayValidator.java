@@ -9,13 +9,13 @@ public class CustomArrayValidator {
     private static Logger logger = LogManager.getLogger();
     private static final String NUM_PATTERN = "(\\s?-?\\d+\\s?)+";
 
-    public static boolean validate(String line) {
-        if (line == null) {
-            String errorMsg = "Passed string is null";
+    public static boolean validateString(String string) {
+        if (string == null) {
+            String errorMsg = "CustomArrayValidator: Passed string is null";
             logger.error(errorMsg);
             return false;
         }
 
-        return Pattern.matches(NUM_PATTERN, line);
+        return Pattern.matches(NUM_PATTERN, string);
     }
 }

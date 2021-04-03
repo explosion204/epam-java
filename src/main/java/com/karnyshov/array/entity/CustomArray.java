@@ -1,37 +1,21 @@
 package com.karnyshov.array.entity;
 
 import com.karnyshov.array.exception.CustomArrayException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class CustomArray implements Cloneable {
-    private static Logger logger = LogManager.getLogger();
     private int[] internalCollection;
 
-    private CustomArray() {
-        internalCollection = new int[0];
-    }
+    public CustomArray(int length) throws CustomArrayException {
+        if (length < 0) {
+            String errorMsg = "Invalid array length: " + length;
+            throw new CustomArrayException(errorMsg);
+        }
 
-    private CustomArray(int ... values) {
-        internalCollection = values.clone();
+        internalCollection = new int[length];
     }
 
     public int getLength() {
         return internalCollection.length;
-    }
-
-    public static CustomArray createEmptyArray(int length) throws CustomArrayException {
-        if (length < 0) {
-            logger.error("Negative array length");
-            throw new CustomArrayException("Array length must not be less than zero");
-        }
-
-        int[] values = new int[length];
-        return new CustomArray(values);
-    }
-
-    public static CustomArray createArrayFromValues(int... values) {
-        return new CustomArray(values);
     }
 
     public int[] toIntArray() {
@@ -40,8 +24,7 @@ public class CustomArray implements Cloneable {
 
     public int get(int index) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
-            String errorMsg = "Array index is out of bounds";
-            logger.error(errorMsg);
+            String errorMsg = "Array index " + index + " is out of bounds";
             throw new CustomArrayException(errorMsg);
         }
 
@@ -50,8 +33,7 @@ public class CustomArray implements Cloneable {
 
     public void set(int index, int number) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
-            String errorMsg = "Array index is out of bounds";
-            logger.error(errorMsg);
+            String errorMsg = "Array index " + index + " is out of bounds";
             throw new CustomArrayException(errorMsg);
         }
 
