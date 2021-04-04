@@ -25,11 +25,8 @@ public class Main {
         CustomFileReader reader = new CustomFileReader();
         CustomArrayParser parser = new CustomArrayParser();
         CustomArrayCreator creator = new CustomArrayCreator();
-        AggregationService aggregationService = new AggregationServiceStreamImpl();
-        ManipulationService manipulationService = new ManipulationServiceImpl();
-        SortService sortService = new SortServiceMergeImpl();
 
-        ClassLoader loader = ClassLoader.getSystemClassLoader();
+        ClassLoader loader = Main.class.getClassLoader();
         URL resource = loader.getResource("data/data.txt");
         assert resource != null;
         String filePath = new File(resource.getFile()).getAbsolutePath();
@@ -44,26 +41,6 @@ public class Main {
 
             CustomArray array = creator.createFromValues(parsedValues);
             logger.info("Created array: " + array.toString());
-
-            int minValue = aggregationService.findMin(array);
-            int maxValue = aggregationService.findMax(array);
-            double avgValue = aggregationService.findAvg(array);
-            long sum = aggregationService.findSum(array);
-            long positivesCount = aggregationService.findPositivesCount(array);
-            long negativesCount = aggregationService.findNegativesCount(array);
-            logger.info("Min value: " + minValue);
-            logger.info("Max value: " + maxValue);
-            logger.info("Avg value: " + avgValue);
-            logger.info("Sum: " + sum);
-            logger.info("Positive elements count: " + positivesCount);
-            logger.info("Negative elements count: " + negativesCount);
-
-            manipulationService.replace(array, x -> x > 50, x -> 1);
-            logger.info("All elements with value greater than 50 are replaced with 1. Modified array: "
-                    + array.toString());
-
-            sortService.sort(array);
-            logger.info("Sorted array: " + array.toString());
         } catch (CustomArrayException e) {
             logger.error(e.getMessage() + ": " + e.getCause());
         }
