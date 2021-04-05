@@ -30,14 +30,14 @@ public class CustomArrayParserTest {
     }
 
     @Test(dataProvider = "valid-data-provider")
-    public void testParseStrings(String string, int[] expectedArray) throws CustomArrayException {
+    public void testParseString(String string, int[] expectedArray) throws CustomArrayException {
         int[] actualArray = parser.parseString(string);
 
         Assert.assertEquals(actualArray, expectedArray);
     }
 
     @Test(dataProvider = "invalid-data-provider", expectedExceptions = CustomArrayException.class)
-    public void testParseStringsWithInvalidData(String string) throws CustomArrayException {
+    public void testParseStringWithInvalidData(String string) throws CustomArrayException {
         parser.parseString(string);
     }
 }

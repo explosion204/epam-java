@@ -48,7 +48,7 @@ public class CustomFileReaderTest {
     }
 
     @Test(dataProvider = "invalid-file-data-provider", expectedExceptions = CustomArrayException.class)
-    public void testFromFileWithInvalidPath(String filePath)
+    public void testFromFileWithInvalid(String filePath)
             throws CustomArrayException {
         reader.readFromFile(filePath);
     }

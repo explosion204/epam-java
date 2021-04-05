@@ -7,8 +7,7 @@ public class CustomArray implements Cloneable {
 
     public CustomArray(int length) throws CustomArrayException {
         if (length < 0) {
-            String errorMsg = "Invalid array length: " + length;
-            throw new CustomArrayException(errorMsg);
+            throw new CustomArrayException("Invalid array length: " + length);
         }
 
         internalCollection = new int[length];
@@ -24,8 +23,7 @@ public class CustomArray implements Cloneable {
 
     public int get(int index) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
-            String errorMsg = "Array index " + index + " is out of bounds";
-            throw new CustomArrayException(errorMsg);
+            throw new CustomArrayException("Array index " + index + " is out of bounds");
         }
 
         return internalCollection[index];
@@ -33,17 +31,24 @@ public class CustomArray implements Cloneable {
 
     public void set(int index, int number) throws CustomArrayException {
         if (index < 0 || index >= internalCollection.length) {
-            String errorMsg = "Array index " + index + " is out of bounds";
-            throw new CustomArrayException(errorMsg);
+            throw new CustomArrayException("Array index " + index + " is out of bounds");
         }
 
         internalCollection[index] = number;
     }
 
     @Override
-    public CustomArray clone() throws CloneNotSupportedException {
-        CustomArray arrayCopy = (CustomArray) super.clone();
-        arrayCopy.internalCollection = internalCollection.clone();
+    public CustomArray clone() {
+        CustomArray arrayCopy = null;
+
+        try {
+            arrayCopy = (CustomArray) super.clone();
+            arrayCopy.internalCollection = internalCollection.clone();
+        } catch (CloneNotSupportedException e) {
+            // CustomArray implements Cloneable interface, so CloneNotSupportedException is never thrown
+            e.printStackTrace();
+        }
+
         return arrayCopy;
     }
 
@@ -61,15 +66,11 @@ public class CustomArray implements Cloneable {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-
         if (obj == this) {
             return true;
         }
 
-        if (!(obj instanceof CustomArray)) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 

@@ -1,0 +1,35 @@
+2021-04-05 20:19:30,484 DEBUG [main] com.karnyshov.array.service.impl.AggregationServiceImpl - Found avg value: 18.8
+2021-04-05 20:19:30,490 DEBUG [main] com.karnyshov.array.service.impl.AggregationServiceImpl - Found max value: 126
+2021-04-05 20:19:30,492 DEBUG [main] com.karnyshov.array.service.impl.AggregationServiceImpl - Found min value: -3
+2021-04-05 20:19:30,495 DEBUG [main] com.karnyshov.array.service.impl.AggregationServiceImpl - Found count of negative elements: 2
+2021-04-05 20:19:30,497 DEBUG [main] com.karnyshov.array.service.impl.AggregationServiceImpl - Found count of positive elements: 8
+2021-04-05 20:19:30,498 DEBUG [main] com.karnyshov.array.service.impl.AggregationServiceImpl - Found sum: 188
+2021-04-05 20:19:30,506 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 15f 4 scd$ 4 5 45 %' is invalid
+2021-04-05 20:19:30,507 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '2 --5 +6 4 52 ff' is invalid
+2021-04-05 20:19:30,507 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1.* 1.0 8 41' is invalid
+2021-04-05 20:19:30,507 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 2 3 4 154 6 2 3' is valid
+2021-04-05 20:19:30,508 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '-1 5 4 5 6 4 5 74 4' is valid
+2021-04-05 20:19:30,508 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '5 334 5 54 -2 -65 -4' is valid
+2021-04-05 20:19:30,512 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 5 q@' is invalid
+2021-04-05 20:19:30,513 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 5 q@' is invalid
+2021-04-05 20:19:30,513 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 5 q@' is invalid
+2021-04-05 20:19:30,513 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 5 q@' is invalid
+2021-04-05 20:19:30,514 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string 'q q q 1 5 q fff' is invalid
+2021-04-05 20:19:30,516 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 faaa' is invalid
+2021-04-05 20:19:30,516 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 6 4 2 15 1 2 63' is valid
+2021-04-05 20:19:30,517 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '5 6f 4 7 5' is invalid
+2021-04-05 20:19:30,517 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '6 7 6 86q 1 3' is invalid
+2021-04-05 20:19:30,517 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '4 5' is valid
+2021-04-05 20:19:30,520 DEBUG [main] com.karnyshov.array.service.impl.SortServiceQuickImpl - Sorted array (with quick sort): { 2 3 4 5 5 6 15 15 17 126 }
+2021-04-05 20:19:30,521 DEBUG [main] com.karnyshov.array.service.impl.SortServiceMergeImpl - Sorted array (with merge sort): { 2 3 4 5 5 6 15 15 17 126 }
+2021-04-05 20:19:30,522 DEBUG [main] com.karnyshov.array.service.impl.SortServiceInsertionImpl - Sorted array (with insertion sort): { 2 3 4 5 5 6 15 15 17 126 }
+2021-04-05 20:19:30,525 DEBUG [main] com.karnyshov.array.service.impl.ManipulationServiceImpl - Value 6 is replaced with value 7
+2021-04-05 20:19:30,526 DEBUG [main] com.karnyshov.array.service.impl.ManipulationServiceImpl - Value 2 is replaced with value 3
+2021-04-05 20:19:30,526 DEBUG [main] com.karnyshov.array.service.impl.ManipulationServiceImpl - Value 126 is replaced with value 127
+2021-04-05 20:19:30,526 DEBUG [main] com.karnyshov.array.service.impl.ManipulationServiceImpl - Value 4 is replaced with value 5
+2021-04-05 20:20:02,540 INFO [main] com.karnyshov.array.main.Main - File path: D:\projects\java-array\target\classes\data\data.txt
+2021-04-05 20:20:02,544 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 faaa' is invalid
+2021-04-05 20:20:02,544 DEBUG [main] com.karnyshov.array.validation.CustomArrayValidator - Validation result: string '1 6 4 2 15 1 2 63' is valid
+2021-04-05 20:20:02,544 INFO [main] com.karnyshov.array.main.Main - String read from file: 1 6 4 2 15 1 2 63
+2021-04-05 20:20:02,546 INFO [main] com.karnyshov.array.main.Main - Parsed values: [1, 6, 4, 2, 15, 1, 2, 63]
+2021-04-05 20:20:02,546 INFO [main] com.karnyshov.array.main.Main - Created array: { 1 6 4 2 15 1 2 63 }

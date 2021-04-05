@@ -11,8 +11,7 @@ public class CustomArrayValidator {
 
     public static boolean validateString(String string) {
         if (string == null) {
-            String errorMsg = "CustomArrayValidator: Passed string is null";
-            logger.error(errorMsg);
+            logger.error("CustomArrayValidator: Passed string is null");
             return false;
         }
 

@@ -7,6 +7,6 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
 public interface ManipulationService {
-    void replace(CustomArray array, Predicate<Integer> predicate,
-                 UnaryOperator<Integer> transform) throws CustomArrayException;
+    void replace(CustomArray array, Predicate<Integer> predicate, UnaryOperator<Integer> transform)
+            throws CustomArrayException;
 }

@@ -17,14 +17,11 @@ public class CustomFileReader {
             try (Stream<String> stream = Files.lines(path)) {
                 return stream.filter(CustomArrayValidator::validateString)
                         .findFirst()
-                        .orElseThrow(() -> {
-                            String errorMsg = "File (" + filePath + ") does not contain any valid data";
-                            return new CustomArrayException(errorMsg);
-                        });
+                        .orElseThrow(() ->
+                                new CustomArrayException("File (" + filePath + ") does not contain any valid data"));
             }
         } catch (InvalidPathException | IOException e) {
-            String errorMsg = "Unable to open file: " + filePath;
-            throw new CustomArrayException(errorMsg, e);
+            throw new CustomArrayException("Unable to open file: " + filePath, e);
         }
     }
 }

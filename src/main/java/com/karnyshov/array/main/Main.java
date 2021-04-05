@@ -5,12 +5,6 @@ import com.karnyshov.array.entity.CustomArray;
 import com.karnyshov.array.exception.CustomArrayException;
 import com.karnyshov.array.parser.CustomArrayParser;
 import com.karnyshov.array.reader.CustomFileReader;
-import com.karnyshov.array.service.AggregationService;
-import com.karnyshov.array.service.ManipulationService;
-import com.karnyshov.array.service.SortService;
-import com.karnyshov.array.service.impl.AggregationServiceStreamImpl;
-import com.karnyshov.array.service.impl.ManipulationServiceImpl;
-import com.karnyshov.array.service.impl.SortServiceMergeImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
